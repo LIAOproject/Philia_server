@@ -1,0 +1,104 @@
+# Relation-OS Docker Compose 配置
+# PostgreSQL + pgvector + Redis (可选缓存)
+
+version: '3.8'
+
+services:
+  # PostgreSQL 数据库 (启用 pgvector 扩展)
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: relation_os_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-relation_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-relation_secret_2024}
+      POSTGRES_DB: ${POSTGRES_DB:-relation_os}
+    ports:
+      - "5433:5432"  # 外部端口改为5433，避免与本地 PostgreSQL 冲突
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-relation_user} -d ${POSTGRES_DB:-relation_os}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis 缓存 (可选，用于会话/限流)
+  redis:
+    image: redis:7-alpine
+    container_name: relation_os_redis
+    restart: unless-stopped
+    ports:
+      - "6380:6379"  # 外部端口改为6380，避免与本地 Redis 冲突
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # FastAPI 后端服务
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: relation_os_backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      # 数据库配置
+      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-relation_user}:${POSTGRES_PASSWORD:-relation_secret_2024}@postgres:5432/${POSTGRES_DB:-relation_os}
+      REDIS_URL: redis://redis:6379/0
+
+      # 火山引擎 API 配置 (从 .env 文件读取)
+      VOLC_ACCESSKEY: ${VOLC_ACCESSKEY}
+      VOLC_SECRETKEY: ${VOLC_SECRETKEY}
+      ARK_API_KEY: ${ARK_API_KEY}
+      ENDPOINT_ID: ${ENDPOINT_ID}
+
+      # 应用配置
+      DEBUG: ${DEBUG:-false}
+      SECRET_KEY: ${SECRET_KEY:-your-super-secret-key-change-in-production}
+    volumes:
+      - ./backend:/app
+      - uploaded_files:/app/uploads
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  # Next.js 前端服务 (开发模式)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: relation_os_frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - backend
+    command: npm run dev
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  uploaded_files:
+    driver: local
+
+networks:
+  default:
+    name: relation_os_network
