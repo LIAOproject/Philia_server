@@ -21,6 +21,10 @@ RUN apt-get update && \
 # 复制依赖文件
 COPY requirements.txt .
 
+# 配置国内 pip 镜像源
+RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple && \
+    pip config set global.trusted-host pypi.tuna.tsinghua.edu.cn
+
 # 安装 Python 依赖
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt

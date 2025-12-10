@@ -157,9 +157,9 @@ class TargetMemory(Base):
         nullable=False,
     )
 
-    # 向量 Embedding (1024 维 - 豆包 Embedding Large)
+    # 向量 Embedding (2048 维 - 豆包 Embedding Large 实际返回维度)
     embedding: Mapped[Optional[list]] = mapped_column(
-        Vector(1024),
+        Vector(2048),
         nullable=True,
     )
 

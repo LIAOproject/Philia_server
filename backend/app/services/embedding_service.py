@@ -4,7 +4,7 @@ Philia Embedding Service
 
 模型信息:
 - 模型名称: Doubao-embedding-large
-- 向量维度: 1024 维
+- 向量维度: 2048 维 (实际API返回维度)
 - 最大输入: 4096 tokens
 """
 
@@ -15,8 +15,8 @@ from openai import OpenAI
 
 from app.core.config import settings
 
-# 豆包 Embedding Large 向量维度
-EMBEDDING_DIMENSION = 1024
+# 豆包 Embedding Large 向量维度 (根据实际API返回)
+EMBEDDING_DIMENSION = 2048
 
 
 class EmbeddingService:
@@ -58,7 +58,7 @@ class EmbeddingService:
             )
 
             embedding = response.data[0].embedding
-            logger.debug(f"Generated embedding for text ({len(text)} chars)")
+            logger.debug(f"Generated embedding for text ({len(text)} chars), dim={len(embedding)}")
 
             return embedding
 

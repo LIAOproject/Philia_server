@@ -170,17 +170,19 @@ async def retrieve_memory(state: AgentState, db: AsyncSession) -> AgentState:
         # 构建向量检索 SQL
         # 同时考虑向量相似度和时间衰减
         # 只查询 active 状态的记忆
+        # 将 embedding 转换为字符串格式以避免 SQLAlchemy 参数解析问题
+        query_embedding_str = "[" + ",".join(str(v) for v in query_embedding) + "]"
         vector_search_sql = text("""
             SELECT
                 id, content, happened_at, source_type, sentiment_score,
-                1 - (embedding <=> :query_embedding::vector) as similarity,
+                1 - (embedding <=> CAST(:query_embedding AS vector)) as similarity,
                 EXTRACT(EPOCH FROM (NOW() - happened_at)) / 86400.0 as days_ago
             FROM target_memory
             WHERE target_id = :target_id
                 AND content IS NOT NULL
                 AND embedding IS NOT NULL
                 AND status = 'active'
-            ORDER BY embedding <=> :query_embedding::vector
+            ORDER BY embedding <=> CAST(:query_embedding AS vector)
             LIMIT :limit
         """)
 
@@ -188,7 +190,7 @@ async def retrieve_memory(state: AgentState, db: AsyncSession) -> AgentState:
             vector_search_sql,
             {
                 "target_id": str(target_id),
-                "query_embedding": query_embedding,
+                "query_embedding": query_embedding_str,
                 "limit": rag_config.max_memories * 2,
             },
         )

@@ -52,7 +52,12 @@ class Settings(BaseSettings):
     ALLOWED_EXTENSIONS: set = {"png", "jpg", "jpeg", "gif", "webp"}
 
     # CORS 配置
-    CORS_ORIGINS: list = ["http://localhost:3000", "http://127.0.0.1:3000"]
+    CORS_ORIGINS: list = [
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        "http://14.103.211.140:3000",
+        "http://demo.philia.chat",
+    ]
 
     class Config:
         env_file = ".env"

@@ -60,6 +60,7 @@ async def init_db() -> None:
     async with engine.begin() as conn:
         # 导入所有模型以注册到 Base.metadata
         from app.models import relationship  # noqa: F401
+        from app.models import chat  # noqa: F401
         await conn.run_sync(Base.metadata.create_all)
 
 

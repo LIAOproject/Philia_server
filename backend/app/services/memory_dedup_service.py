@@ -56,23 +56,25 @@ async def check_duplicate_memory(
         # 使用 pgvector 的余弦相似度检索
         # 1 - cosine_distance = cosine_similarity
         # 只检查 active 状态的记忆
+        # 将 embedding 转换为字符串格式以避免 SQLAlchemy 参数解析问题
+        embedding_str = "[" + ",".join(str(v) for v in embedding) + "]"
         result = await db.execute(
             text("""
                 SELECT
                     id,
                     content,
-                    1 - (embedding <=> :embedding::vector) as similarity
+                    1 - (embedding <=> CAST(:embedding AS vector)) as similarity
                 FROM target_memory
                 WHERE target_id = :target_id
                     AND embedding IS NOT NULL
                     AND content IS NOT NULL
                     AND status = 'active'
-                ORDER BY embedding <=> :embedding::vector
+                ORDER BY embedding <=> CAST(:embedding AS vector)
                 LIMIT 1
             """),
             {
                 "target_id": str(target_id),
-                "embedding": embedding,
+                "embedding": embedding_str,
             }
         )
 
@@ -136,23 +138,25 @@ async def find_similar_memories(
 
     try:
         # 只查找 active 状态的记忆
+        # 将 embedding 转换为字符串格式以避免 SQLAlchemy 参数解析问题
+        embedding_str = "[" + ",".join(str(v) for v in embedding) + "]"
         result = await db.execute(
             text("""
                 SELECT
                     id,
                     content,
-                    1 - (embedding <=> :embedding::vector) as similarity
+                    1 - (embedding <=> CAST(:embedding AS vector)) as similarity
                 FROM target_memory
                 WHERE target_id = :target_id
                     AND embedding IS NOT NULL
                     AND status = 'active'
-                    AND 1 - (embedding <=> :embedding::vector) >= :min_similarity
-                ORDER BY embedding <=> :embedding::vector
+                    AND 1 - (embedding <=> CAST(:embedding AS vector)) >= :min_similarity
+                ORDER BY embedding <=> CAST(:embedding AS vector)
                 LIMIT :limit
             """),
             {
                 "target_id": str(target_id),
-                "embedding": embedding,
+                "embedding": embedding_str,
                 "min_similarity": min_similarity,
                 "limit": limit,
             }

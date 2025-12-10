@@ -59,24 +59,26 @@ async def detect_conflicting_memory(
 
     try:
         # 阶段1: 向量相似度检索候选记忆
+        # 将 embedding 转换为字符串格式以避免 SQLAlchemy 参数解析问题
+        embedding_str = "[" + ",".join(str(v) for v in embedding) + "]"
         result = await db.execute(
             text("""
                 SELECT
                     id,
                     content,
-                    1 - (embedding <=> :embedding::vector) as similarity
+                    1 - (embedding <=> CAST(:embedding AS vector)) as similarity
                 FROM target_memory
                 WHERE target_id = :target_id
                     AND embedding IS NOT NULL
                     AND content IS NOT NULL
                     AND status = 'active'
-                    AND 1 - (embedding <=> :embedding::vector) >= :threshold
-                ORDER BY embedding <=> :embedding::vector
+                    AND 1 - (embedding <=> CAST(:embedding AS vector)) >= :threshold
+                ORDER BY embedding <=> CAST(:embedding AS vector)
                 LIMIT 3
             """),
             {
                 "target_id": str(target_id),
-                "embedding": embedding,
+                "embedding": embedding_str,
                 "threshold": similarity_threshold,
             }
         )
