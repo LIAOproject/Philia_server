@@ -11,7 +11,7 @@ from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from loguru import logger
 
-from app.api import chat, memories, targets, upload
+from app.api import auth, chat, memories, targets, upload
 from app.core.config import settings
 from app.core.database import AsyncSessionLocal, close_db, init_db
 from app.services.seed_mentors import seed_mentors
@@ -100,6 +100,7 @@ except RuntimeError:
     logger.warning(f"上传目录 {settings.UPLOAD_DIR} 不存在，将在首次上传时创建")
 
 # 注册路由
+app.include_router(auth.router, prefix="/api/v1")
 app.include_router(targets.router, prefix="/api/v1")
 app.include_router(memories.router, prefix="/api/v1")
 app.include_router(upload.router, prefix="/api/v1")

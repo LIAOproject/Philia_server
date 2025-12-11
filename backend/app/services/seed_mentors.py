@@ -14,7 +14,7 @@ DEFAULT_MENTORS = [
         "name": "温柔姐姐",
         "description": "温暖贴心的倾听者，善于共情，给你最温柔的建议和鼓励。",
         "style_tag": "温柔共情",
-        "icon_url": None,
+        "icon_url": "https://api.dicebear.com/7.x/micah/png?seed=NuanNuan&backgroundColor=ffd5dc&size=128",
         "sort_order": 1,
         "system_prompt_template": """你是一位温柔贴心的情感咨询师，名叫"暖暖"。你的说话风格温和亲切，善于倾听和共情。
 
@@ -45,7 +45,7 @@ DEFAULT_MENTORS = [
         "name": "毒舌闺蜜",
         "description": "犀利直接的好朋友，一针见血指出问题，帮你看清现实。",
         "style_tag": "犀利直接",
-        "icon_url": None,
+        "icon_url": "https://api.dicebear.com/7.x/micah/png?seed=LaLa&backgroundColor=c0aede&size=128",
         "sort_order": 2,
         "system_prompt_template": """你是一位说话犀利的闺蜜，名叫"辣辣"。你直言不讳，但出发点都是为朋友好。
 
@@ -76,7 +76,7 @@ DEFAULT_MENTORS = [
         "name": "理性分析师",
         "description": "冷静客观的分析专家，用数据和逻辑帮你梳理关系现状。",
         "style_tag": "理性分析",
-        "icon_url": None,
+        "icon_url": "https://api.dicebear.com/7.x/micah/png?seed=Alex&backgroundColor=b6e3f4&size=128",
         "sort_order": 3,
         "system_prompt_template": """你是一位理性的情感分析师，名叫"Alex"。你擅长用逻辑和数据分析问题。
 
@@ -113,7 +113,7 @@ DEFAULT_MENTORS = [
         "name": "恋爱教练",
         "description": "实战派恋爱专家，教你具体的沟通技巧和追求策略。",
         "style_tag": "实战指导",
-        "icon_url": None,
+        "icon_url": "https://api.dicebear.com/7.x/micah/png?seed=Kevin&backgroundColor=c1f4c5&size=128",
         "sort_order": 4,
         "system_prompt_template": """你是一位经验丰富的恋爱教练，名叫"Kevin"。你擅长教授实用的恋爱技巧。
 
@@ -150,7 +150,7 @@ DEFAULT_MENTORS = [
         "name": "心理咨询师",
         "description": "专业的心理咨询视角，帮你探索内心，处理情感困扰。",
         "style_tag": "心理探索",
-        "icon_url": None,
+        "icon_url": "https://api.dicebear.com/7.x/micah/png?seed=DrLin&backgroundColor=dfe6e9&size=128",
         "sort_order": 5,
         "system_prompt_template": """你是一位专业的心理咨询师，名叫"林医生"。你用专业的心理学知识帮助来访者。
 
@@ -191,9 +191,9 @@ async def seed_mentors(db: AsyncSession) -> int:
     初始化导师数据
 
     Returns:
-        创建的导师数量
+        创建或更新的导师数量
     """
-    created_count = 0
+    changed_count = 0
 
     for mentor_data in DEFAULT_MENTORS:
         # 检查是否已存在
@@ -204,9 +204,20 @@ async def seed_mentors(db: AsyncSession) -> int:
         if not existing:
             mentor = AIMentor(**mentor_data)
             db.add(mentor)
-            created_count += 1
+            changed_count += 1
+        else:
+            # 更新 icon_url 和 is_active
+            updated = False
+            if existing.icon_url != mentor_data["icon_url"]:
+                existing.icon_url = mentor_data["icon_url"]
+                updated = True
+            if not existing.is_active:
+                existing.is_active = True
+                updated = True
+            if updated:
+                changed_count += 1
 
-    if created_count > 0:
+    if changed_count > 0:
         await db.commit()
 
-    return created_count
+    return changed_count

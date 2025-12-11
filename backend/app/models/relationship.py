@@ -39,6 +39,14 @@ class TargetProfile(Base):
         default=uuid.uuid4,
     )
 
+    # 外键: 关联到 User (可选，支持历史数据兼容)
+    user_id: Mapped[Optional[uuid.UUID]] = mapped_column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=True,
+        index=True,
+    )
+
     # 基础信息
     name: Mapped[str] = mapped_column(Text, nullable=False)
     avatar_url: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
@@ -91,10 +99,17 @@ class TargetProfile(Base):
         lazy="selectin",
     )
 
+    # 关联: 多对一关系 -> user
+    user: Mapped[Optional["User"]] = relationship(
+        "User",
+        back_populates="targets",
+    )
+
     # 约束
     __table_args__ = (
         Index("idx_profile_status", "current_status"),
         Index("idx_profile_updated_at", "updated_at"),
+        Index("idx_profile_user_id", "user_id"),
     )
 
     def __repr__(self) -> str:

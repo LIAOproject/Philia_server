@@ -1,0 +1,628 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		13B87F662EEAC7FA00770E8D /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B87F652EEAC7FA00770E8D /* KeychainHelper.swift */; };
+		13B87F672EEAC7FA00770E8D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B87F642EEAC7FA00770E8D /* AuthService.swift */; };
+		13B87F692EEAC80E00770E8D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B87F682EEAC80E00770E8D /* User.swift */; };
+		505ADD5CB42003334024F2E8 /* TargetDataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0784EBD640CF871E70FB15D /* TargetDataCache.swift */; };
+		6EC410266B2FF7C78592D19E /* AppLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170CD0D0A375D38021DBF50 /* AppLogoView.swift */; };
+		A100000001 /* PhiliaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000001 /* PhiliaApp.swift */; };
+		A100000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000002 /* ContentView.swift */; };
+		A100000003 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000003 /* Constants.swift */; };
+		A100000004 /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000004 /* Target.swift */; };
+		A100000005 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000005 /* Memory.swift */; };
+		A100000006 /* Mentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000006 /* Mentor.swift */; };
+		A100000007 /* Chatbot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000007 /* Chatbot.swift */; };
+		A100000008 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000008 /* ChatMessage.swift */; };
+		A100000009 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000009 /* APIClient.swift */; };
+		A10000000A /* TargetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000A /* TargetService.swift */; };
+		A10000000B /* MemoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000B /* MemoryService.swift */; };
+		A10000000C /* UploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000C /* UploadService.swift */; };
+		A10000000D /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000D /* ChatService.swift */; };
+		A10000000E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000E /* HomeView.swift */; };
+		A10000000F /* TargetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000F /* TargetCard.swift */; };
+		A100000010 /* CreateTargetSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000010 /* CreateTargetSheet.swift */; };
+		A100000011 /* TargetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000011 /* TargetDetailView.swift */; };
+		A100000012 /* ProfileTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000012 /* ProfileTab.swift */; };
+		A100000013 /* ConsultTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000013 /* ConsultTab.swift */; };
+		A100000014 /* AnalysisTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000014 /* AnalysisTab.swift */; };
+		A100000015 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000015 /* ChatView.swift */; };
+		A100000016 /* ChatBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000016 /* ChatBubble.swift */; };
+		A100000017 /* ImageUploadSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000017 /* ImageUploadSheet.swift */; };
+		A100000018 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000018 /* SettingsView.swift */; };
+		A100000019 /* StatusBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000019 /* StatusBadge.swift */; };
+		A10000001A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000001A /* LoadingView.swift */; };
+		A10000001B /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000001B /* EmptyStateView.swift */; };
+		A10000001C /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000001C /* AsyncImageView.swift */; };
+		A10000001D /* ImageCropperSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000001E /* ImageCropperSheet.swift */; };
+		A10000001E /* AvatarCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000001F /* AvatarCache.swift */; };
+		A10000001F /* DeletedTargetCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000020 /* DeletedTargetCache.swift */; };
+		A100000020 /* DeletedTargetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000021 /* DeletedTargetsView.swift */; };
+		A100000021 /* PinnedTargetCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000022 /* PinnedTargetCache.swift */; };
+		ADA97A7EA02F7E51E5112C14 /* AppLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = BCE3EEC81530A8BE581A73C9 /* AppLogo.png */; };
+		C7CAFD091B498C56BD6F0534 /* EditTargetSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CE051690A80E2228AA0368 /* EditTargetSheet.swift */; };
+		A100000022 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000023 /* ImageCache.swift */; };
+		A100000023 /* CachedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000024 /* CachedAsyncImage.swift */; };
+		A100000024 /* Norican-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B100000025 /* Norican-Regular.ttf */; };
+		A100000025 /* Font+Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000026 /* Font+Brand.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		13172C752EEAC1FA000F909D /* Philia.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Philia.entitlements; sourceTree = "<group>"; };
+		13B87F642EEAC7FA00770E8D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		13B87F652EEAC7FA00770E8D /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		13B87F682EEAC80E00770E8D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		13B87F6A2EEAD17300770E8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		49CE051690A80E2228AA0368 /* EditTargetSheet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EditTargetSheet.swift; sourceTree = "<group>"; };
+		5170CD0D0A375D38021DBF50 /* AppLogoView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppLogoView.swift; sourceTree = "<group>"; };
+		A0784EBD640CF871E70FB15D /* TargetDataCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TargetDataCache.swift; sourceTree = "<group>"; };
+		B100000001 /* PhiliaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhiliaApp.swift; sourceTree = "<group>"; };
+		B100000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B100000003 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B100000004 /* Target.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Target.swift; sourceTree = "<group>"; };
+		B100000005 /* Memory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
+		B100000006 /* Mentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mentor.swift; sourceTree = "<group>"; };
+		B100000007 /* Chatbot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chatbot.swift; sourceTree = "<group>"; };
+		B100000008 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		B100000009 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		B10000000A /* TargetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetService.swift; sourceTree = "<group>"; };
+		B10000000B /* MemoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryService.swift; sourceTree = "<group>"; };
+		B10000000C /* UploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadService.swift; sourceTree = "<group>"; };
+		B10000000D /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
+		B10000000E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B10000000F /* TargetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetCard.swift; sourceTree = "<group>"; };
+		B100000010 /* CreateTargetSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTargetSheet.swift; sourceTree = "<group>"; };
+		B100000011 /* TargetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetDetailView.swift; sourceTree = "<group>"; };
+		B100000012 /* ProfileTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTab.swift; sourceTree = "<group>"; };
+		B100000013 /* ConsultTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultTab.swift; sourceTree = "<group>"; };
+		B100000014 /* AnalysisTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisTab.swift; sourceTree = "<group>"; };
+		B100000015 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		B100000016 /* ChatBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubble.swift; sourceTree = "<group>"; };
+		B100000017 /* ImageUploadSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadSheet.swift; sourceTree = "<group>"; };
+		B100000018 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B100000019 /* StatusBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBadge.swift; sourceTree = "<group>"; };
+		B10000001A /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		B10000001B /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		B10000001C /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
+		B10000001D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B10000001E /* ImageCropperSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCropperSheet.swift; sourceTree = "<group>"; };
+		B10000001F /* AvatarCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCache.swift; sourceTree = "<group>"; };
+		B100000020 /* DeletedTargetCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletedTargetCache.swift; sourceTree = "<group>"; };
+		B100000021 /* DeletedTargetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletedTargetsView.swift; sourceTree = "<group>"; };
+		B100000022 /* PinnedTargetCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinnedTargetCache.swift; sourceTree = "<group>"; };
+		BCE3EEC81530A8BE581A73C9 /* AppLogo.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = AppLogo.png; sourceTree = "<group>"; };
+		C100000001 /* Philia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Philia.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B100000023 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		B100000024 /* CachedAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedAsyncImage.swift; sourceTree = "<group>"; };
+		B100000025 /* Norican-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Norican-Regular.ttf"; sourceTree = "<group>"; };
+		B100000026 /* Font+Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Brand.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D100000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BA4C457B47C25B1C579F57F5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5170CD0D0A375D38021DBF50 /* AppLogoView.swift */,
+			);
+			name = Components;
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E100000001 = {
+			isa = PBXGroup;
+			children = (
+				E100000002 /* Philia */,
+				E100000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E100000002 /* Philia */ = {
+			isa = PBXGroup;
+			children = (
+				13B87F6A2EEAD17300770E8D /* Assets.xcassets */,
+				13172C752EEAC1FA000F909D /* Philia.entitlements */,
+				B100000001 /* PhiliaApp.swift */,
+				B100000002 /* ContentView.swift */,
+				B10000001D /* Info.plist */,
+				E100000004 /* Models */,
+				E100000005 /* Services */,
+				E100000006 /* Views */,
+				E10000000D /* Components */,
+				E10000000E /* Utils */,
+				E10000000F /* Resources */,
+				BA4C457B47C25B1C579F57F5 /* Components */,
+				BCE3EEC81530A8BE581A73C9 /* AppLogo.png */,
+			);
+			path = Philia;
+			sourceTree = "<group>";
+		};
+		E10000000F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E100000010 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E100000010 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B100000025 /* Norican-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		E100000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C100000001 /* Philia.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E100000004 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B100000004 /* Target.swift */,
+				13B87F682EEAC80E00770E8D /* User.swift */,
+				B100000005 /* Memory.swift */,
+				B100000006 /* Mentor.swift */,
+				B100000007 /* Chatbot.swift */,
+				B100000008 /* ChatMessage.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E100000005 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B100000009 /* APIClient.swift */,
+				13B87F642EEAC7FA00770E8D /* AuthService.swift */,
+				13B87F652EEAC7FA00770E8D /* KeychainHelper.swift */,
+				B10000000A /* TargetService.swift */,
+				B10000000B /* MemoryService.swift */,
+				B10000000C /* UploadService.swift */,
+				B10000000D /* ChatService.swift */,
+				B10000001F /* AvatarCache.swift */,
+				B100000020 /* DeletedTargetCache.swift */,
+				B100000022 /* PinnedTargetCache.swift */,
+				A0784EBD640CF871E70FB15D /* TargetDataCache.swift */,
+				B100000023 /* ImageCache.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E100000006 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E100000007 /* Home */,
+				E100000008 /* Target */,
+				E100000009 /* Chat */,
+				E10000000A /* Upload */,
+				E10000000B /* Settings */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E100000007 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000E /* HomeView.swift */,
+				B10000000F /* TargetCard.swift */,
+				B100000010 /* CreateTargetSheet.swift */,
+				B10000001E /* ImageCropperSheet.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E100000008 /* Target */ = {
+			isa = PBXGroup;
+			children = (
+				B100000011 /* TargetDetailView.swift */,
+				B100000012 /* ProfileTab.swift */,
+				B100000013 /* ConsultTab.swift */,
+				B100000014 /* AnalysisTab.swift */,
+				49CE051690A80E2228AA0368 /* EditTargetSheet.swift */,
+			);
+			path = Target;
+			sourceTree = "<group>";
+		};
+		E100000009 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				B100000015 /* ChatView.swift */,
+				B100000016 /* ChatBubble.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		E10000000A /* Upload */ = {
+			isa = PBXGroup;
+			children = (
+				B100000017 /* ImageUploadSheet.swift */,
+			);
+			path = Upload;
+			sourceTree = "<group>";
+		};
+		E10000000B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B100000018 /* SettingsView.swift */,
+				B100000021 /* DeletedTargetsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		E10000000D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B100000019 /* StatusBadge.swift */,
+				B10000001A /* LoadingView.swift */,
+				B10000001B /* EmptyStateView.swift */,
+				B10000001C /* AsyncImageView.swift */,
+				B100000024 /* CachedAsyncImage.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E10000000E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B100000003 /* Constants.swift */,
+				B100000026 /* Font+Brand.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F100000001 /* Philia */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = G100000001 /* Build configuration list for PBXNativeTarget "Philia" */;
+			buildPhases = (
+				H100000001 /* Sources */,
+				D100000001 /* Frameworks */,
+				050E45F001E6A899F6A3D161 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Philia;
+			productName = Philia;
+			productReference = C100000001 /* Philia.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		I100000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 2610;
+				TargetAttributes = {
+					F100000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = G100000002 /* Build configuration list for PBXProject "Philia" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E100000001;
+			productRefGroup = E100000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F100000001 /* Philia */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		050E45F001E6A899F6A3D161 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADA97A7EA02F7E51E5112C14 /* AppLogo.png in Resources */,
+				A100000024 /* Norican-Regular.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		H100000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A100000001 /* PhiliaApp.swift in Sources */,
+				A100000002 /* ContentView.swift in Sources */,
+				A100000003 /* Constants.swift in Sources */,
+				A100000004 /* Target.swift in Sources */,
+				A100000005 /* Memory.swift in Sources */,
+				A100000006 /* Mentor.swift in Sources */,
+				A100000007 /* Chatbot.swift in Sources */,
+				A100000008 /* ChatMessage.swift in Sources */,
+				A100000009 /* APIClient.swift in Sources */,
+				A10000000A /* TargetService.swift in Sources */,
+				A10000000B /* MemoryService.swift in Sources */,
+				A10000000C /* UploadService.swift in Sources */,
+				A10000000D /* ChatService.swift in Sources */,
+				A10000000E /* HomeView.swift in Sources */,
+				A10000000F /* TargetCard.swift in Sources */,
+				A100000010 /* CreateTargetSheet.swift in Sources */,
+				A100000011 /* TargetDetailView.swift in Sources */,
+				A100000012 /* ProfileTab.swift in Sources */,
+				A100000013 /* ConsultTab.swift in Sources */,
+				A100000014 /* AnalysisTab.swift in Sources */,
+				A100000015 /* ChatView.swift in Sources */,
+				A100000016 /* ChatBubble.swift in Sources */,
+				A100000017 /* ImageUploadSheet.swift in Sources */,
+				A100000018 /* SettingsView.swift in Sources */,
+				13B87F662EEAC7FA00770E8D /* KeychainHelper.swift in Sources */,
+				13B87F672EEAC7FA00770E8D /* AuthService.swift in Sources */,
+				A100000019 /* StatusBadge.swift in Sources */,
+				A10000001A /* LoadingView.swift in Sources */,
+				A10000001B /* EmptyStateView.swift in Sources */,
+				A10000001C /* AsyncImageView.swift in Sources */,
+				A10000001D /* ImageCropperSheet.swift in Sources */,
+				A10000001E /* AvatarCache.swift in Sources */,
+				13B87F692EEAC80E00770E8D /* User.swift in Sources */,
+				A10000001F /* DeletedTargetCache.swift in Sources */,
+				A100000020 /* DeletedTargetsView.swift in Sources */,
+				A100000021 /* PinnedTargetCache.swift in Sources */,
+				6EC410266B2FF7C78592D19E /* AppLogoView.swift in Sources */,
+				C7CAFD091B498C56BD6F0534 /* EditTargetSheet.swift in Sources */,
+				505ADD5CB42003334024F2E8 /* TargetDataCache.swift in Sources */,
+				A100000022 /* ImageCache.swift in Sources */,
+				A100000023 /* CachedAsyncImage.swift in Sources */,
+				A100000025 /* Font+Brand.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		J100000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		J100000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		J100000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Philia/Philia.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TKSS27VRAB;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Philia/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Philia;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.philia.chat.philia;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		J100000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Philia/Philia.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TKSS27VRAB;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Philia/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Philia;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.philia.chat.philia;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		G100000001 /* Build configuration list for PBXNativeTarget "Philia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				J100000003 /* Debug */,
+				J100000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		G100000002 /* Build configuration list for PBXProject "Philia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				J100000001 /* Debug */,
+				J100000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = I100000001 /* Project object */;
+}
